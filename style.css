@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #503d9f;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 100%;
+}
+
+.clock__wrapper {
+  width: 450px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.clock__links {
+  display: flex;
+  align-items: center;
+}
+
+.clock__links li,
+.clock__links li a {
+  display: flex;
+  flex-grow: 1;
+}
+
+.clock__links li a {
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: #000;
+  padding: 16px 0;
+}
+
+.clock__links li a.active {
+  border-bottom: 4px solid #503d9f;
+  background-color: rgba(81, 61, 159, 0.1);
+}
+
+.clock__content {
+  position: relative;
+  height: 400px;
+}
+
+.clock,
+.stopwatch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 50px 0;
+}
+
+.stopwatch {
+  justify-content: center;
+  row-gap: 70px;
+}
+
+.clock.active,
+.stopwatch.active {
+  z-index: 1;
+}
+
+.clock-digital,
+.stopwatch__display {
+  display: flex;
+  justify-content: center;
+  column-gap: 5px;
+}
+
+.clock-digital .hour,
+.stopwatch__hour,
+.clock-digital .minute,
+.stopwatch__minute,
+.clock-digital .second,
+.stopwatch__second {
+  width: 50px;
+  padding: 10px 0;
+  background-color: #503d9f;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+}
+
+.clock-digital span,
+.stopwatch__display span {
+  width: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.clock-digital span::before,
+.stopwatch__display span::before,
+.clock-digital span::after,
+.stopwatch__display span::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #503d9f;
+  border-radius: 100%;
+}
+
+.clock-digital span::before,
+.stopwatch__display span::before {
+  top: 12px;
+}
+
+.clock-digital span::after,
+.stopwatch__display span::after {
+  bottom: 12px;
+}
+
+.clock-classic {
+  position: relative;
+  margin-bottom: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: #503d9f;
+  border-radius: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-classic__center {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.clock__h,
+.clock__m,
+.clock__s {
+  position: absolute;
+  height: 100%;
+}
+
+.clock__h::before,
+.clock__m::before,
+.clock__s::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+}
+
+.clock__h {
+  width: 4px;
+  border-radius: 5px;
+}
+
+.clock__h::before {
+  top: 20%;
+  height: 30%;
+  background-color: #fff;
+}
+
+.clock__m {
+  width: 2.5px;
+}
+
+.clock__m::before {
+  top: 15%;
+  height: 45%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.clock__s {
+  width: 1.5px;
+}
+
+.clock__s::before {
+  top: 15%;
+  height: 45%;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.clock-classic .number {
+  position: absolute;
+  z-index: 1;
+  font-size: 18px;
+}
+
+.arrow {
+  position: relative;
+  width: 3px;
+  height: 100%;
+}
+
+.arrow::before,
+.arrow::after {
+  content: "";
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 18px;
+  background-color: #fff;
+}
+
+.arrow::before {
+  top: 8px;
+}
+.arrow::after {
+  bottom: 8px;
+}
+
+.arrow__1-7 {
+  transform: rotate(30deg);
+}
+
+.arrow__2-8 {
+  transform: rotate(60deg);
+}
+
+.arrow__4-10 {
+  transform: rotate(120deg);
+}
+
+.arrow__5-11 {
+  transform: rotate(150deg);
+}
+
+.clock-classic .number.number12 {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.clock-classic .number.number3 {
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+
+.clock-classic .number.number6 {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.clock-classic .number.number9 {
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.stopwatch__btns {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.stopwatch__btn {
+  width: 150px;
+  padding: 20px 0;
+  background: none;
+  background-color: #503d9f;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+}
+
+.stopwatch__btn:disabled {
+  background-color: rgba(81, 61, 159, 0.25);
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 0 10px;
+    width: 100%;
+  }
+
+  .clock__wrapper {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .clock__links li a {
+    font-size: 16px;
+  }
+}

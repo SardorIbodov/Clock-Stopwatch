@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="clock__wrapper">
+        <ul class="clock__links">
+          <li><a href="#" class="clock__link active">Clock</a></li>
+          <li><a href="#" class="clock__link">Stopwatch</a></li>
+        </ul>
+        <div class="clock__content">
+          <div class="clock__content-item clock active">
+            <div class="clock-classic">
+              <div class="number number12">12</div>
+              <div class="number number3">3</div>
+              <div class="number number6">6</div>
+              <div class="number number9">9</div>
+              <div class="arrow arrow__1-7"></div>
+              <div class="arrow arrow__2-8"></div>
+              <div class="arrow arrow__4-10"></div>
+              <div class="arrow arrow__5-11"></div>
+              <div class="clock-classic__center"></div>
+              <div class="clock__h"></div>
+              <div class="clock__m"></div>
+              <div class="clock__s"></div>
+            </div>
+            <div class="clock-digital">
+              <div class="hour">00</div>
+              <span></span>
+              <div class="minute">00</div>
+              <span></span>
+              <div class="second">00</div>
+            </div>
+          </div>
+          <div class="clock__content-item stopwatch">
+            <div class="stopwatch__display">
+              <div class="stopwatch__hour">00</div>
+              <span></span>
+              <div class="stopwatch__minute">00</div>
+              <span></span>
+              <div class="stopwatch__second">00</div>
+            </div>
+            <div class="stopwatch__btns">
+              <button class="stopwatch__btn stopwatch__btn-start">Start</button>
+              <button class="stopwatch__btn stopwatch__btn-stop" disabled>
+                Stop
+              </button>
+              <button class="stopwatch__btn stopwatch__btn-reset" disabled>
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
