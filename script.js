@@ -27,6 +27,7 @@ const $clock__s = document.querySelector(".clock__s");
 
 // Digital clock
 
+let intervalClock;
 function currentTime() {
   const date = new Date();
 
@@ -43,8 +44,7 @@ function currentTime() {
   $clock__h.style.transform = `rotate(${
     hour * 30 + minute * 0.5 + (second * 0.5) / 60
   }deg)`;
-
-  setInterval(currentTime, 1000);
+  setTimeout(currentTime, 1000);
 }
 
 currentTime();
@@ -64,27 +64,25 @@ const $stopwatchResetBtn = document.querySelector(".stopwatch__btn-reset");
 let stopwatchSecond = 0;
 let stopwatchMinute = 0;
 let stopwatchHour = 0;
-let Interval;
+let stopwatchInterval;
 
 $stopwatchStartBtn.addEventListener("click", function (e) {
-  clearInterval(Interval);
-  e.preventDefault();
-  stopWatch();
+  stopwatchInterval = setInterval(function () {
+    stopWatch();
+  }, 1000);
   $stopwatchStartBtn.setAttribute("disabled", "disabled");
   $stopwatchStopBtn.removeAttribute("disabled");
+  $stopwatchResetBtn.setAttribute("disable", "disable");
 });
 
 $stopwatchStopBtn.addEventListener("click", function (e) {
-  clearInterval(Interval);
-  e.preventDefault();
+  clearInterval(stopwatchInterval);
   $stopwatchStopBtn.setAttribute("disabled", "disabled");
   $stopwatchStartBtn.removeAttribute("disabled");
   $stopwatchResetBtn.removeAttribute("disabled");
 });
 
 $stopwatchResetBtn.addEventListener("click", function (e) {
-  clearInterval(Interval);
-  e.preventDefault();
   $stopwatchResetBtn.setAttribute("disabled", "disabled");
   stopwatchSecond = 0;
   stopwatchMinute = 0;
@@ -95,21 +93,19 @@ $stopwatchResetBtn.addEventListener("click", function (e) {
 });
 
 function stopWatch() {
-  Interval = setInterval(function () {
-    stopwatchSecond++;
-    if (stopwatchSecond === 60) {
-      stopwatchSecond = 0;
-      stopwatchMinute++;
-    }
-    if (stopwatchMinute === 60) {
-      stopwatchMinute = 0;
-      stopwatchHour++;
-    }
-    $stopwatchSecond.innerHTML =
-      stopwatchSecond > 9 ? stopwatchSecond : "0" + stopwatchSecond;
-    $stopwatchMinute.innerHTML =
-      stopwatchMinute > 9 ? stopwatchMinute : "0" + stopwatchMinute;
-    $stopwatchHour.innerHTML =
-      stopwatchHour > 9 ? stopwatchHour : "0" + stopwatchHour;
-  }, 1000);
+  stopwatchSecond++;
+  if (stopwatchSecond === 60) {
+    stopwatchSecond = 0;
+    stopwatchMinute++;
+  }
+  if (stopwatchMinute === 60) {
+    stopwatchMinute = 0;
+    stopwatchHour++;
+  }
+  $stopwatchSecond.innerHTML =
+    stopwatchSecond > 9 ? stopwatchSecond : "0" + stopwatchSecond;
+  $stopwatchMinute.innerHTML =
+    stopwatchMinute > 9 ? stopwatchMinute : "0" + stopwatchMinute;
+  $stopwatchHour.innerHTML =
+    stopwatchHour > 9 ? stopwatchHour : "0" + stopwatchHour;
 }
