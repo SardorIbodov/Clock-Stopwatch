@@ -72,7 +72,7 @@ $stopwatchStartBtn.addEventListener("click", function (e) {
   }, 1000);
   $stopwatchStartBtn.setAttribute("disabled", "disabled");
   $stopwatchStopBtn.removeAttribute("disabled");
-  $stopwatchResetBtn.setAttribute("disable", "disable");
+  $stopwatchResetBtn.setAttribute("disabled", "disabled");
 });
 
 $stopwatchStopBtn.addEventListener("click", function (e) {
@@ -84,6 +84,7 @@ $stopwatchStopBtn.addEventListener("click", function (e) {
 
 $stopwatchResetBtn.addEventListener("click", function (e) {
   $stopwatchResetBtn.setAttribute("disabled", "disabled");
+  $stopwatchStartBtn.removeAttribute("disabled");
   stopwatchSecond = 0;
   stopwatchMinute = 0;
   stopwatchHour = 0;
