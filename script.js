@@ -31,19 +31,28 @@ let intervalClock;
 function currentTime() {
   const date = new Date();
 
-  const hour = date.getHours();
-  const minute = date.getMinutes();
-  const second = date.getSeconds();
+  let second = date.getSeconds() * 6;
+  let minute = date.getMinutes() * 6;
+  let hour = date.getHours() * 30;
 
-  $hour.innerHTML = hour > 9 ? hour : "0" + hour;
-  $minute.innerHTML = minute > 9 ? minute : "0" + minute;
-  $second.innerHTML = second > 9 ? second : "0" + second;
+  $clock__s.style.transform = `rotate(${second}deg)`;
+  $clock__m.style.transform = `rotate(${minute}deg)`;
+  $clock__h.style.transform = `rotate(${hour}deg)`;
+  hour += 360 / (3600 * 12);
+  minute += 360 / 3600;
+  second += 360 / 60;
 
-  $clock__s.style.transform = `rotate(${second * 6}deg)`;
-  $clock__m.style.transform = `rotate(${minute * 6 + second * 0.1}deg)`;
-  $clock__h.style.transform = `rotate(${
-    hour * 30 + minute * 0.5 + (second * 0.5) / 60
-  }deg)`;
+  $clock__s.style.transform = `rotate(${second}deg)`;
+  $clock__m.style.transform = `rotate(${minute}deg)`;
+  $clock__h.style.transform = `rotate(${hour}deg)`;
+
+  $second.innerHTML =
+    date.getSeconds() > 9 ? date.getSeconds() : "0" + date.getSeconds();
+  $minute.innerHTML =
+    date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes();
+  $hour.innerHTML =
+    date.getHours() > 9 ? date.getHours() : "0" + date.getHours();
+
   setTimeout(currentTime, 1000);
 }
 
