@@ -38,9 +38,7 @@
 	let minute = date.getMinutes() * 6;
 	let hour = date.getHours() * 30;
 	
-	function currentTime() {
-		const date = new Date();
-	
+	function currentTime() {	
 		$clock__s.style.transform = `rotate(${second}deg)`;
 		$clock__m.style.transform = `rotate(${minute}deg)`;
 		$clock__h.style.transform = `rotate(${hour}deg)`;
@@ -52,6 +50,7 @@
 		$clock__m.style.transform = `rotate(${minute}deg)`;
 		$clock__h.style.transform = `rotate(${hour}deg)`;
 	
+		const date = new Date();
 		$second.innerHTML =
 			date.getSeconds() > 9 ? date.getSeconds() : "0" + date.getSeconds();
 		$minute.innerHTML =
