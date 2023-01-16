@@ -166,7 +166,7 @@ body {
 .clock__s {
   position: absolute;
   height: 100%;
-	transition: 1s linear transform;
+  transition: 1s linear transform 0s;
 }
 
 .clock__h::before,
