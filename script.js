@@ -18,14 +18,13 @@
 /**************************************************************/
 
 // Clock
-{
 	const $hour = document.querySelector(".hour");
 	const $minute = document.querySelector(".minute");
 	const $second = document.querySelector(".second");
 	const $clock__h = document.querySelector(".clock__h");
 	const $clock__m = document.querySelector(".clock__m");
 	const $clock__s = document.querySelector(".clock__s");
-}
+
 
 /**************************************************************/
 
